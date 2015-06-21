@@ -1,0 +1,24 @@
+{
+  "name": "reddit-fetcher",
+  "version": "1.0.0",
+  "description": "a script to fetch reddit links",
+  "main": "getredditshiz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curioussavage/reddit-fetcher.git"
+  },
+  "author": "curioussavage01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curioussavage/reddit-fetcher/issues"
+  },
+  "homepage": "https://github.com/curioussavage/reddit-fetcher#readme",
+  "dependencies": {
+    "jsonfile": "^2.1.1",
+    "request": "^2.58.0",
+    "sqlite3": "^3.0.8"
+  }
+}
