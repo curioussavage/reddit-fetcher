@@ -26,6 +26,6 @@ var processlistings = function(listings) {
     var link = item.data;
     var args = util.buildLinkToStore(link);
 
-    db.manager.saveNewPost(args, null); // new args and callback if wanted.
+    dbManager.saveNewPost(args, null); // new args and callback if wanted.
   });
 }
