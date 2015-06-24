@@ -19,7 +19,7 @@ request(url, function (error, response, body) {
     // TODO: fix this. set new latest;
     // configManager(x.data.children[x.data.children.length].name);
   }
-})
+});
 
 
 var processlistings = function(listings) {

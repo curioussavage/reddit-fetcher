@@ -1,5 +1,5 @@
 var sqlite3 = require('sqlite3').verbose();
-var eventEmitter = require("events").eventEmitter;
+var eventEmitter = require("events").EventEmitter;
 var emitter = new eventEmitter();
 var events = require('./events.js');
 
