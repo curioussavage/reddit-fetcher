@@ -3,7 +3,7 @@ var configManager = require('./config.js');
 var dbManager = require('./sqlinit.js');
 var util = require('./utils.js');
 // config will be used to keep track of last thing downloaded;
-var eventEmitter = require("events").eventEmitter;
+var eventEmitter = require("events").EventEmitter;
 var events = require('./events.js');
 
 var config = configManager.getLastItem();
