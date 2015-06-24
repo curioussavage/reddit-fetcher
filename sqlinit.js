@@ -1,4 +1,8 @@
 var sqlite3 = require('sqlite3').verbose();
+var eventEmitter = require("events").eventEmitter;
+var emitter = new eventEmitter();
+var events = require('./events.js');
+
 var db = new sqlite3.Database('test.db');
 
 db.serialize(function() {
@@ -16,6 +20,10 @@ var saveNewPost = function(args, cb) {
     cb();
   }
 }
+
+emitter.on(events.LISTINGS_PROCESSED, function() {
+  db.close();
+})
 
 module.exports.saveNewPost = saveNewPost;
 module.exports.db = db;

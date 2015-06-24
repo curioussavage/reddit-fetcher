@@ -3,9 +3,11 @@ var configManager = require('./config.js');
 var dbManager = require('./sqlinit.js');
 var util = require('./utils.js');
 // config will be used to keep track of last thing downloaded;
+var eventEmitter = require("events").eventEmitter;
+var events = require('./events.js');
+
 var config = configManager.getLastItem();
-
-
+var emitter = new eventEmitter();
 
 var url = 'http://www.reddit.com/r/technology.json';
 request(url, function (error, response, body) {
@@ -14,9 +16,8 @@ request(url, function (error, response, body) {
     var listings = JSON.parse(body);
     processlistings(listings);
 
-    // TODO: fix this. set new latest
+    // TODO: fix this. set new latest;
     // configManager(x.data.children[x.data.children.length].name);
-    dbManager.db.close();
   }
 })
 
@@ -28,4 +29,6 @@ var processlistings = function(listings) {
 
     dbManager.saveNewPost(args, null); // new args and callback if wanted.
   });
+  // emitter notifies db module to close
+  emitter.emit(events.LISTINGS_PROCESSED);
 }
